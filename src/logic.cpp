@@ -14,11 +14,22 @@ int findMiddle(int upper, int lower) {
     }
 }
 
+std::string askNumber(int asked) {
+    std::string letter;
+    std::cout << "Is your number " << asked << '\n';
+    std::cout << "(H)igher, (L)ower, (C)orrect, (Q)uit (answer in a capital letter): ";
+    std::cin >> letter;
+    return letter;
+}
+
 int playGame() {
     std::string inputLetter;
+    bool numberFound{false};
     int outputNumber;
     int upperRange{100};
     int lowerRange{0};
-    std::cout << findMiddle(upperRange, lowerRange);
+    while (numberFound == false) {
+    inputLetter = askNumber(findMiddle(upperRange, lowerRange));
+    }
     return 0;
 }
