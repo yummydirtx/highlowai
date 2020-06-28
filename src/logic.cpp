@@ -25,11 +25,26 @@ std::string askNumber(int asked) {
 int playGame() {
     std::string inputLetter;
     bool numberFound{false};
-    int outputNumber;
+    int middleNumber;
+    int outputNumber{0};
     int upperRange{100};
     int lowerRange{0};
     while (numberFound == false) {
-    inputLetter = askNumber(findMiddle(upperRange, lowerRange));
+        outputNumber++;
+        middleNumber = findMiddle(upperRange, lowerRange);
+        inputLetter = askNumber(middleNumber);
+        if (inputLetter == "H") {
+            lowerRange = middleNumber;
+        } else if (inputLetter == "L") {
+            upperRange = middleNumber;
+        } else if (inputLetter == "C") {
+            numberFound = true;
+            std::cout << "The number is " << middleNumber;
+        } else if (inputLetter == "Q") {
+            return 100;
+        } else {
+            return 150;
+        }
     }
-    return 0;
+    return outputNumber;
 }
