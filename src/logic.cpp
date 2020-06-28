@@ -19,6 +19,6 @@ int playGame() {
     int outputNumber;
     int upperRange{100};
     int lowerRange{0};
-    std::cout << findMiddle(1,2);
+    std::cout << findMiddle(upperRange, lowerRange);
     return 0;
 }
