@@ -11,6 +11,6 @@ int introduceUser() {
         std::cout << "Ok, goodbye!";
         return 1;
     }
-    std::cout << "Let's play!" << '\n';
+    std::cout << "Let's play! Think of a number between 1 and 100" << '\n';
     return 0;
 }
