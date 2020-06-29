@@ -17,5 +17,5 @@ int introduceUser() {
 
 void finalStats(int numberOfTimes) {
     std::cout << "Thanks for playing!\n"
-    << "Your number took the AI " << numberOfTimes << " turns to find your number.\n";
+    << "Your number took the AI " << numberOfTimes << " turns to find.\n";
 }
