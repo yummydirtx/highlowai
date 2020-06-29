@@ -8,7 +8,7 @@ int introduceUser() {
     << "Would you like to play? (Y,n) ";
     std::cin >> wantPlay;
     if (wantPlay == "n") {
-        std::cout << "Ok, goodbye!";
+        std::cout << "Ok, goodbye!" << '\n';
         return 1;
     }
     std::cout << "Let's play! Think of a number between 1 and 100" << '\n';
