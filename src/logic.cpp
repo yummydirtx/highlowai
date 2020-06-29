@@ -4,10 +4,10 @@
 #include <cstdlib>
 
 int findMiddle(int upper, int lower) {
-    float halfNumber{(float(upper) + float(lower)) / 2};
-    srand(time(0));
+    float halfNumber{(float(upper) + float(lower)) / 2};    //find the exact middle number
+    srand(time(0));     //seed the random number generator
     int upOrDown{rand() % 50};
-    if (upOrDown >= 25) {
+    if (upOrDown >= 25) {   //round the number up or down
         return int(std::ceil(halfNumber));
     } else {
         return int(std::floor(halfNumber));
@@ -23,7 +23,7 @@ std::string askNumber(int asked, int older) {
     std::cout << "\n";
     return letter;
     } else {
-        return "try";
+        return "try";   //if the number has already been asked try again
     }
 }
 
@@ -39,23 +39,23 @@ int playGame() {
         middleNumber = findMiddle(upperRange, lowerRange);
         inputLetter = askNumber(middleNumber, oldNumber);
         if (inputLetter == "H") {
-            lowerRange = middleNumber;
-            outputNumber++;
+            lowerRange = middleNumber;  //set the lower range if the number is higher
+            outputNumber++;     //increment the turn counter
         } else if (inputLetter == "L") {
-            upperRange = middleNumber;
+            upperRange = middleNumber;  //set the upper range if the number is lower
             outputNumber++;
         } else if (inputLetter == "C") {
-            numberFound = true;
+            numberFound = true; //break out of the loop
             std::cout << "The number is " << middleNumber << '\n';
         } else if (inputLetter == "Q") {
-            return 100;
+            return 100;         //tell the main function the user exited
         } else if (inputLetter == "try") {
             if (outputNumber > 10) {
-                return 200;
+                return 200;     //tell the main function the user has cheated
             }
         } else {
-            return 150;
+            return 150;         //tell the main function the user has mistyped
         }
     }
-    return outputNumber;
+    return outputNumber;    //tell the main function how many turns it took
 }
