@@ -16,7 +16,7 @@ int findMiddle(int upper, int lower) {
 
 std::string askNumber(int asked) {
     std::string letter;
-    std::cout << "Is your number " << asked << '?\n';
+    std::cout << "Is your number " << asked << "?\n";
     std::cout << "(H)igher, (L)ower, (C)orrect, (Q)uit (answer in a capital letter): ";
     std::cin >> letter;
     std::cout << "\n";

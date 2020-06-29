@@ -14,6 +14,14 @@ int main() {
     }
     //Guess number and check with user
     logicExit = playGame();
+    if (logicExit == 100) {
+        std::cout << "Come back soon!";
+        return 0;
+    } else if (logicExit == 150) {
+        std::cout << "Error (code 1): Incorrect Input";
+        return 1;
+    }
     //Output number of guesses needed to find
+    
     return 0;
 }
