@@ -58,7 +58,8 @@ int playGame() {
             } else if (inputLetter == "try") {
                 if (outputNumber > 50) {
                     return 200;     //tell the main function the user has cheated
-            }
+                }
+                mistype = true;
             } else {
                 std::cout << "Oops! Try again: ";         //tell the main function the user has mistyped
                 std::cin >> inputLetter;
