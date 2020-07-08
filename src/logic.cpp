@@ -18,7 +18,7 @@ std::string askNumber(int asked, int older) {
     if (asked != older) {
     std::string letter;
     std::cout << "Is your number " << asked << "?\n";
-    std::cout << "(H)igher, (L)ower, (C)orrect, (Q)uit (answer in a capital letter): ";
+    std::cout << "(H)igher, (L)ower, (C)orrect, (Q)uit: ";
     std::cin >> letter;
     std::cout << "\n";
     return letter;
@@ -56,7 +56,7 @@ int playGame() {
             } else if (inputLetter == "Q" || inputLetter == "q") {
                 return 100;         //tell the main function the user exited
             } else if (inputLetter == "try") {
-                if (outputNumber > 10) {
+                if (outputNumber > 50) {
                     return 200;     //tell the main function the user has cheated
             }
             } else {
