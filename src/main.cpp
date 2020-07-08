@@ -17,9 +17,6 @@ int main() {
     if (logicExit == 100) {
         std::cout << "Come back soon!" << '\n';
         return 0;
-    } else if (logicExit == 150) {
-        std::cout << "Error (code 1): Incorrect Input" << '\n';
-        return 1;
     } else if (logicExit == 200) {
         std::cout << "Error (code 2): User error leading to program failure. Please try again" << '\n';
         return 1;
