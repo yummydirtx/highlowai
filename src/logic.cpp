@@ -35,26 +35,35 @@ int playGame() {
     int outputNumber{0};
     int upperRange{100};
     int lowerRange{0};
+    bool mistype{false};
     while (numberFound == false) {
         middleNumber = findMiddle(upperRange, lowerRange);
         inputLetter = askNumber(middleNumber, oldNumber);
-        if (inputLetter == "H") {
-            lowerRange = middleNumber;  //set the lower range if the number is higher
-            outputNumber++;     //increment the turn counter
-        } else if (inputLetter == "L") {
-            upperRange = middleNumber;  //set the upper range if the number is lower
-            outputNumber++;
-        } else if (inputLetter == "C") {
-            numberFound = true; //break out of the loop
-            std::cout << "The number is " << middleNumber << '\n';
-        } else if (inputLetter == "Q") {
-            return 100;         //tell the main function the user exited
-        } else if (inputLetter == "try") {
-            if (outputNumber > 10) {
-                return 200;     //tell the main function the user has cheated
+        mistype = false;
+        while (!mistype) {
+            if (inputLetter == "H" || inputLetter == "h") {
+                lowerRange = middleNumber;  //set the lower range if the number is higher
+                outputNumber++;     //increment the turn counter
+                mistype = true;
+            } else if (inputLetter == "L" || inputLetter == "l") {
+                upperRange = middleNumber;  //set the upper range if the number is lower
+                outputNumber++;
+                mistype = true;
+            } else if (inputLetter == "C" || inputLetter == "c") {
+                numberFound = true; //break out of the loop
+                std::cout << "The number is " << middleNumber << '\n';
+                mistype = true;
+            } else if (inputLetter == "Q" || inputLetter == "q") {
+                return 100;         //tell the main function the user exited
+            } else if (inputLetter == "try") {
+                if (outputNumber > 10) {
+                    return 200;     //tell the main function the user has cheated
             }
-        } else {
-            return 150;         //tell the main function the user has mistyped
+            } else {
+                std::cout << "Oops! Try again: ";         //tell the main function the user has mistyped
+                std::cin >> inputLetter;
+                std::cout << std::endl;
+            }
         }
     }
     return outputNumber;    //tell the main function how many turns it took
