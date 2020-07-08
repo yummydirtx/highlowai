@@ -31,10 +31,10 @@ int playGame() {
     std::string inputLetter;
     bool numberFound{false};
     int oldNumber{0};
-    int middleNumber;
-    int outputNumber{0};
-    int upperRange{100};
-    int lowerRange{0};
+    long long int middleNumber;
+    long int outputNumber{0};
+    long long int upperRange{100};
+    long long int lowerRange{0};
     bool mistype{false};
     while (numberFound == false) {
         middleNumber = findMiddle(upperRange, lowerRange);
