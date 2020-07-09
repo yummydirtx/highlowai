@@ -43,10 +43,12 @@ int playGame() {
         while (!mistype) {
             if (inputLetter == "H" || inputLetter == "h") {
                 lowerRange = middleNumber;  //set the lower range if the number is higher
+                oldNumber = middleNumber;
                 outputNumber++;     //increment the turn counter
                 mistype = true;
             } else if (inputLetter == "L" || inputLetter == "l") {
                 upperRange = middleNumber;  //set the upper range if the number is lower
+                oldNumber = middleNumber;
                 outputNumber++;
                 mistype = true;
             } else if (inputLetter == "C" || inputLetter == "c") {
@@ -56,7 +58,7 @@ int playGame() {
             } else if (inputLetter == "Q" || inputLetter == "q") {
                 return 100;         //tell the main function the user exited
             } else if (inputLetter == "try") {
-                if (outputNumber > 50) {
+                if (upperRange == lowerRange) {
                     return 200;     //tell the main function the user has cheated
                 }
                 mistype = true;
