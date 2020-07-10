@@ -10,7 +10,7 @@ int main() {
     //Do introductions
     introExit = introduceUser();
     if (introExit == 1) {
-        return 1;
+        return 0;
     }
     //Guess number and check with user
     logicExit = playGame();
