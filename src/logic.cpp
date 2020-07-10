@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 
-int findMiddle(int upper, int lower) {
+static int findMiddle(int upper, int lower) {
     float halfNumber{(float(upper) + float(lower)) / 2};    //find the exact middle number
     srand(time(0));     //seed the random number generator
     int upOrDown{rand() % 50};
@@ -14,7 +14,7 @@ int findMiddle(int upper, int lower) {
     }
 }
 
-std::string askNumber(int asked, int older) {
+static std::string askNumber(int asked, int older) {
     if (asked != older) {
     std::string letter;
     std::cout << "Is your number " << asked << "?\n";
@@ -25,6 +25,14 @@ std::string askNumber(int asked, int older) {
     } else {
         return "try";   //if the number has already been asked try again
     }
+}
+
+static int askUpper() {
+    int upperNumber{100};
+    std::cout << "What should the upper range of guessed numbers be?" << '\n' << "Enter a number: ";
+    std::cin >> upperNumber;
+    std::cout << std::endl;
+    return upperNumber;
 }
 
 int playGame() {
