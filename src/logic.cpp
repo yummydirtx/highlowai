@@ -45,7 +45,7 @@ int playGame() {
     bool inRange{false};
     int oldNumber{0};
     long long int middleNumber{50};
-    long int outputNumber{0};
+    long int outputNumber{1};
     long long int upperRange{100};
     long long int lowerRange{0};
     bool mistype{false};
