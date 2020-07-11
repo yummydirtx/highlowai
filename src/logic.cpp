@@ -27,23 +27,35 @@ static std::string askNumber(int asked, int older) {
     }
 }
 
-static int askUpper() {
+static long long int askUpper() {
     int upperNumber{100};
-    std::cout << "What should the upper range of guessed numbers be?" << '\n' << "Enter a number: ";
+    std::cout << "What should the upper range of guessed numbers be?" << '\n' << "Enter a number (Default is 100): ";
     std::cin >> upperNumber;
     std::cout << std::endl;
+    if (upperNumber > 223,372,036,854,775,806 || upperNumber < 1) {
+        return 0;
+    }
     return upperNumber;
 }
 
 int playGame() {
     std::string inputLetter;
     bool numberFound{false};
+    bool inRange{false};
     int oldNumber{0};
     long long int middleNumber;
     long int outputNumber{0};
     long long int upperRange{100};
     long long int lowerRange{0};
     bool mistype{false};
+    while (!inRange) {
+        upperRange = askUpper();
+        if (upperRange != 0) {
+            inRange = true;
+        } else {
+            std::cout << "Out of range! Try again." << '\n';
+        }
+    }
     while (numberFound == false) {
         middleNumber = findMiddle(upperRange, lowerRange);
         inputLetter = askNumber(middleNumber, oldNumber);
