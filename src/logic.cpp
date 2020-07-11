@@ -28,14 +28,14 @@ static std::string askNumber(int asked, int older) {
 }
 
 static long long int askUpper() {
-    int upperNumber{100};
+    long long int upperInput;
     std::cout << "What should the upper range of guessed numbers be?" << '\n' << "Enter a number (Default is 100): ";
-    std::cin >> upperNumber;
+    std::cin >> upperInput;
     std::cout << std::endl;
-    if (upperNumber > 223,372,036,854,775,806 || upperNumber < 1) {
+    if (upperInput < 1) {
         return 0;
     }
-    return upperNumber;
+    return upperInput;
 }
 
 int playGame() {
@@ -43,7 +43,7 @@ int playGame() {
     bool numberFound{false};
     bool inRange{false};
     int oldNumber{0};
-    long long int middleNumber;
+    long long int middleNumber{50};
     long int outputNumber{0};
     long long int upperRange{100};
     long long int lowerRange{0};
