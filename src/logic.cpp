@@ -2,6 +2,7 @@
 #include <string>
 #include <cmath>
 #include <cstdlib>
+#include <time.h>
 
 static int findMiddle(int upper, int lower) {
     float halfNumber{(float(upper) + float(lower)) / 2};    //find the exact middle number
