@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <cmath>
 #include <cstdlib>
 #include <time.h>
@@ -15,16 +14,16 @@ static int findMiddle(int upper, int lower) {
     }
 }
 
-static std::string askNumber(int asked, int older) {
+static char askNumber(int asked, int older) {
     if (asked != older) {
-    std::string letter;
+    char letter;
     std::cout << "Is your number " << asked << "?\n";
     std::cout << "(H)igher, (L)ower, (C)orrect, (Q)uit: ";
     std::cin >> letter;
     std::cout << "\n";
     return letter;
     } else {
-        return "try";   //if the number has already been asked try again
+        return 'z';   //if the number has already been asked try again
     }
 }
 
@@ -40,7 +39,7 @@ static long long int askUpper() {
 }
 
 int playGame() {
-    std::string inputLetter;
+    char inputLetter;
     bool numberFound{false};
     bool inRange{false};
     int oldNumber{0};
@@ -62,23 +61,60 @@ int playGame() {
         inputLetter = askNumber(middleNumber, oldNumber);
         mistype = false;
         while (!mistype) {
-            if (inputLetter == "H" || inputLetter == "h") {
+            switch (inputLetter) {
+                case 'H':
+                case 'h':
                 lowerRange = middleNumber;  //set the lower range if the number is higher
                 oldNumber = middleNumber;
                 outputNumber++;     //increment the turn counter
                 mistype = true;
-            } else if (inputLetter == "L" || inputLetter == "l") {
+                break;
+                case 'L':
+                case 'l':
                 upperRange = middleNumber;  //set the upper range if the number is lower
                 oldNumber = middleNumber;
                 outputNumber++;
                 mistype = true;
-            } else if (inputLetter == "C" || inputLetter == "c") {
+                break;
+                case 'C':
+                case 'c':
                 numberFound = true; //break out of the loop
                 std::cout << "The number is " << middleNumber << '\n';
                 mistype = true;
-            } else if (inputLetter == "Q" || inputLetter == "q") {
+                break;
+                case 'Q':
+                case 'q':
+                return 100;
+                break;
+                case 'z':
+                if (upperRange == lowerRange) {
+                    return 200;     //tell the main function the user has cheated
+                }
+                mistype = true;
+                break;
+                default:
+                std::cout << "Oops! Try again: ";         //tell the main function the user has mistyped
+                std::cin >> inputLetter;
+                std::cout << std::endl;
+                break;
+            }
+/*            if (inputLetter == 'H' || inputLetter == 'h') {
+                lowerRange = middleNumber;  //set the lower range if the number is higher
+                oldNumber = middleNumber;
+                outputNumber++;     //increment the turn counter
+                mistype = true;
+            } else if (inputLetter == 'L' || inputLetter == 'l') {
+                upperRange = middleNumber;  //set the upper range if the number is lower
+                oldNumber = middleNumber;
+                outputNumber++;
+                mistype = true;
+            } else if (inputLetter == 'C' || inputLetter == 'c') {
+                numberFound = true; //break out of the loop
+                std::cout << "The number is " << middleNumber << '\n';
+                mistype = true;
+            } else if (inputLetter == 'Q' || inputLetter == 'q') {
                 return 100;         //tell the main function the user exited
-            } else if (inputLetter == "try") {
+            } else if (inputLetter == 'z') {
                 if (upperRange == lowerRange) {
                     return 200;     //tell the main function the user has cheated
                 }
@@ -87,7 +123,7 @@ int playGame() {
                 std::cout << "Oops! Try again: ";         //tell the main function the user has mistyped
                 std::cin >> inputLetter;
                 std::cout << std::endl;
-            }
+            } */
         }
     }
     return outputNumber;    //tell the main function how many turns it took
