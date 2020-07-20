@@ -10,6 +10,8 @@ In order to build this program simply make this your working directory and run t
 
     make
 
+Or feel free to grab a precompiled executable for Windows/Linux at https://github.com/yummydirtx/highlowai/releases
+
 ### This program was made by Alex Frutkin
 
 ### Readme by Sam Frutkin and Alex Frutkin
