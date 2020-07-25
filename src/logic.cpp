@@ -2,6 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <time.h>
+#include <limits>
 
 static int findMiddle(int upper, int lower) {
     float halfNumber{(float(upper) + float(lower)) / 2};    //find the exact middle number
@@ -54,6 +55,8 @@ int playGame() {
             inRange = true;
         } else {
             std::cout << "Out of range! Try again." << '\n';
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     while (numberFound == false) {
