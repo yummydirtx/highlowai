@@ -1,0 +1,9 @@
+Package: highlowai
+Version: 2.2
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 1024
+Maintainer: yummydirt.me
+Description: High Low AI
